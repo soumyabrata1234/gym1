@@ -13,8 +13,8 @@ export default function Membership() {
       <div className="section-divider" />
 
       {/* Ambient background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full bg-red-600/5 blur-[100px]" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] max-w-[100vw] h-[600px] rounded-full bg-red-600/5 blur-[100px]" />
       </div>
 
       <div className="relative py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

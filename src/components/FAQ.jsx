@@ -64,7 +64,7 @@ export default function FAQ() {
       <div className="section-divider" />
 
       <div className="py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-24 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-start">
           {/* Left - Header */}
           <motion.div
             ref={ref}

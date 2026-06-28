@@ -76,7 +76,7 @@ export default function About() {
         </motion.div>
 
         {/* Two-column layout */}
-        <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-32">
           {/* Left — single clean image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -96,7 +96,7 @@ export default function About() {
             </div>
 
             {/* Floating stat badge */}
-            <div className="absolute -bottom-8 -right-4 sm:right-8 bg-red-600 p-7">
+            <div className="absolute -bottom-8 right-4 sm:right-8 bg-red-600 p-7">
               <div
                 className="font-display text-6xl text-white mb-1 leading-none"
                 style={{ fontFamily: "'Bebas Neue', sans-serif" }}

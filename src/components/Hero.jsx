@@ -65,7 +65,7 @@ export default function Hero() {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg text-gray-300 ml-10 leading-relaxed mb-10 max-w-xl font-light"
+            className="text-lg text-gray-300 sm:ml-10 leading-relaxed mb-10 max-w-xl font-light"
           >
             Premium training. World-class coaches. A community that pushes you
             past your limits. This is where ordinary people become extraordinary.
@@ -92,7 +92,7 @@ export default function Hero() {
           {/* Quick stats */}
           <motion.div
             variants={itemVariants}
-            className="mt-20 flex gap-12 border-t border-white/10 pt-10"
+            className="mt-20 flex flex-wrap gap-6 sm:gap-12 border-t border-white/10 pt-10"
           >
             {[
               { value: "2,400+", label: "Members" },

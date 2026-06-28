@@ -17,31 +17,31 @@ export default function App() {
       <Navbar />
 
       <main>
-        1
+        
         <Hero />
         <br />
-        2
+        
         <About />
         <br />
-        3
+        
         <Programs />
         <br />
-        4
+        
         <Membership />
         <br />
-        5
+        
         <Trainers />
         <br />
-        6
+        
         <Gallery />
         <br />
-        7
+        
         <Testimonials />
         <br />
-        8
+        
         <FAQ />
         <br />
-        9
+        
         <Contact />
         <br />
       </main>

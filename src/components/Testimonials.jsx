@@ -33,8 +33,8 @@ export default function Testimonials() {
       <div className="section-divider" />
 
       {/* Ambient glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-red-900/10 blur-[80px]" />
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] max-w-[100vw] h-[400px] rounded-full bg-red-900/10 blur-[80px]" />
       </div>
 
       <div className="relative py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
