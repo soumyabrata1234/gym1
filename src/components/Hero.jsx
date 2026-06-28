@@ -65,7 +65,7 @@ export default function Hero() {
           {/* Subheadline */}
           <motion.p
             variants={itemVariants}
-            className="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl font-light"
+            className="text-lg text-gray-300 ml-10 leading-relaxed mb-10 max-w-xl font-light"
           >
             Premium training. World-class coaches. A community that pushes you
             past your limits. This is where ordinary people become extraordinary.
@@ -92,7 +92,7 @@ export default function Hero() {
           {/* Quick stats */}
           <motion.div
             variants={itemVariants}
-            className="mt-16 flex gap-10 border-t border-white/10 pt-8"
+            className="mt-20 flex gap-12 border-t border-white/10 pt-10"
           >
             {[
               { value: "2,400+", label: "Members" },
@@ -101,12 +101,12 @@ export default function Hero() {
             ].map((stat) => (
               <div key={stat.label}>
                 <div
-                  className="font-display text-3xl text-white"
+                  className="font-display text-4xl text-white"
                   style={{ fontFamily: "'Bebas Neue', sans-serif" }}
                 >
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray-500 uppercase tracking-widest mt-1">
+                <div className="text-xs text-gray-500 uppercase tracking-widest mt-2">
                   {stat.label}
                 </div>
               </div>
@@ -129,6 +129,7 @@ export default function Hero() {
           className="w-px h-8 bg-gradient-to-b from-gray-500 to-transparent"
         />
       </motion.div>
+
     </section>
   );
 }

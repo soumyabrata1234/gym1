@@ -9,10 +9,10 @@ function TrainerCard({ trainer, index, inView }) {
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.1, duration: 0.7 }}
-      className="group relative overflow-hidden"
+      className="group relative overflow-hidden card-bordered bg-[#0a0a0a]"
     >
       {/* Image */}
-      <div className="relative h-96 overflow-hidden">
+      <div className="relative h-[400px] overflow-hidden">
         <img
           src={trainer.image}
           alt={trainer.name}
@@ -20,7 +20,7 @@ function TrainerCard({ trainer, index, inView }) {
           loading="lazy"
         />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
         {/* Social icons - appear on hover */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0">
@@ -49,17 +49,17 @@ function TrainerCard({ trainer, index, inView }) {
       </div>
 
       {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6">
+      <div className="p-6">
         <h3
-          className="font-display text-2xl text-white tracking-wide"
+          className="font-display text-2xl text-white tracking-wide mb-1"
           style={{ fontFamily: "'Bebas Neue', sans-serif" }}
         >
           {trainer.name}
         </h3>
-        <div className="text-red-400 text-xs font-semibold uppercase tracking-widest mb-1">
+        <div className="text-red-400 text-xs font-semibold uppercase tracking-widest mb-1.5">
           {trainer.role}
         </div>
-        <div className="text-gray-400 text-xs">{trainer.specialty}</div>
+        <div className="text-gray-500 text-xs">{trainer.specialty}</div>
       </div>
     </motion.div>
   );
@@ -70,25 +70,28 @@ export default function Trainers() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="trainers" className="bg-[#080808] py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="trainers" className="bg-[#060606]">
+      {/* Top divider */}
+      <div className="section-divider" />
+
+      <div className="py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16"
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20"
         >
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-5">
               <div className="w-8 h-px bg-red-500" />
               <span className="text-red-500 text-xs font-semibold tracking-[0.25em] uppercase">
                 Our Team
               </span>
             </div>
             <h2
-              className="font-display text-6xl sm:text-7xl text-white"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
               COACHED BY
@@ -102,8 +105,8 @@ export default function Trainers() {
           </p>
         </motion.div>
 
-        {/* Trainer grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+        {/* Trainer grid — real gaps */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {TRAINERS.map((trainer, i) => (
             <TrainerCard
               key={trainer.id}
@@ -119,11 +122,11 @@ export default function Trainers() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-14"
         >
           <a
             href="#contact"
-            className="inline-block px-8 py-3 border border-white/20 hover:border-red-600 text-white text-sm font-semibold tracking-widest uppercase transition-colors duration-300"
+            className="inline-block px-8 py-3.5 border border-white/15 hover:border-red-600 text-white text-sm font-semibold tracking-widest uppercase transition-colors duration-300"
           >
             Book a Free Session
           </a>

@@ -80,3 +80,31 @@ body {
   z-index: 1;
 }
 
+/* Section divider — subtle gradient line between sections */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(220, 38, 38, 0.25), transparent);
+  width: 100%;
+}
+
+/* Ambient glow behind featured elements */
+.red-glow {
+  position: relative;
+}
+.red-glow::before {
+  content: '';
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Card with real border — replaces gap-px trick */
+.card-bordered {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease;
+}
+.card-bordered:hover {
+  border-color: rgba(220, 38, 38, 0.3);
+}

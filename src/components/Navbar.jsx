@@ -34,11 +34,10 @@ export default function Navbar() {
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? "bg-black/95 backdrop-blur-md border-b border-white/5 py-3"
             : "bg-transparent py-5"
-        }`}
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Logo */}
@@ -63,9 +62,8 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`relative text-sm font-medium tracking-widest uppercase transition-colors duration-200 ${
-                    isActive ? "text-red-500" : "text-gray-300 hover:text-white"
-                  }`}
+                  className={`relative text-sm font-medium tracking-widest uppercase transition-colors duration-200 ${isActive ? "text-red-500" : "text-gray-300 hover:text-white"
+                    }`}
                 >
                   {link.label}
                   {isActive && (

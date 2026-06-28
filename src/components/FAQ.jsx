@@ -9,15 +9,15 @@ function FAQItem({ item, isOpen, onToggle, index, inView }) {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.07, duration: 0.5 }}
-      className="border-b border-white/5"
+      className="border-b border-white/6"
     >
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between py-6 text-left group"
+        className="w-full flex items-center justify-between py-7 text-left group"
         aria-expanded={isOpen}
       >
         <span
-          className={`font-medium text-base transition-colors duration-200 pr-8 ${
+          className={`font-medium text-base transition-colors duration-200 pr-10 ${
             isOpen ? "text-white" : "text-gray-300 group-hover:text-white"
           }`}
         >
@@ -43,7 +43,7 @@ function FAQItem({ item, isOpen, onToggle, index, inView }) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-gray-400 leading-relaxed text-sm pr-12">
+            <p className="pb-8 text-gray-400 leading-relaxed text-sm pr-14">
               {item.answer}
             </p>
           </motion.div>
@@ -59,9 +59,12 @@ export default function FAQ() {
   const [openId, setOpenId] = useState(1);
 
   return (
-    <section id="faq" className="bg-black py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+    <section id="faq" className="bg-black">
+      {/* Top divider */}
+      <div className="section-divider" />
+
+      <div className="py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
           {/* Left - Header */}
           <motion.div
             ref={ref}
@@ -70,34 +73,34 @@ export default function FAQ() {
             transition={{ duration: 0.7 }}
             className="lg:sticky lg:top-28"
           >
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-5">
               <div className="w-8 h-px bg-red-500" />
               <span className="text-red-500 text-xs font-semibold tracking-[0.25em] uppercase">
                 FAQ
               </span>
             </div>
             <h2
-              className="font-display text-6xl sm:text-7xl text-white mb-6"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none mb-8"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
               COMMON
               <br />
               <span className="text-red-600">QUESTIONS.</span>
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed mb-8">
+            <p className="text-gray-400 text-base leading-relaxed mb-10">
               Everything you need to know before joining. Still have questions?
               Our team is here to help.
             </p>
             <a
               href="#contact"
-              className="inline-block px-6 py-3 border border-white/20 hover:border-red-600 text-white text-sm font-semibold tracking-widest uppercase transition-colors"
+              className="inline-block px-7 py-3.5 border border-white/15 hover:border-red-600 text-white text-sm font-semibold tracking-widest uppercase transition-colors"
             >
               Ask Us Directly
             </a>
           </motion.div>
 
           {/* Right - Accordion */}
-          <div>
+          <div className="pt-2">
             {FAQ_ITEMS.map((item, i) => (
               <FAQItem
                 key={item.id}

@@ -39,7 +39,7 @@ export default function FloatingButtons() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            href="tel:+911234567890"
+            href="tel:+918509166369"
             aria-label="Call Us"
             className="group w-12 h-12 rounded-full bg-red-600 flex items-center justify-center shadow-lg hover:scale-110 hover:bg-red-700 transition-all relative"
           >

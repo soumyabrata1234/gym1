@@ -19,25 +19,28 @@ export default function Programs() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="programs" className="bg-black py-28">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="programs" className="bg-[#060606]">
+      {/* Top divider */}
+      <div className="section-divider" />
+
+      <div className="py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16"
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-20"
         >
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-5">
               <div className="w-8 h-px bg-red-500" />
               <span className="text-red-500 text-xs font-semibold tracking-[0.25em] uppercase">
                 Programs
               </span>
             </div>
             <h2
-              className="font-display text-6xl sm:text-7xl text-white"
+              className="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none"
               style={{ fontFamily: "'Bebas Neue', sans-serif" }}
             >
               TRAIN WITH
@@ -51,31 +54,31 @@ export default function Programs() {
           </p>
         </motion.div>
 
-        {/* Programs Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5">
+        {/* Programs Grid — real gaps, not gap-px */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {PROGRAMS.map((program, i) => (
             <motion.div
               key={program.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: i * 0.08, duration: 0.6 }}
-              className="group relative bg-black overflow-hidden cursor-pointer"
+              transition={{ delay: i * 0.09, duration: 0.6 }}
+              className="group relative bg-[#0a0a0a] overflow-hidden cursor-pointer card-bordered"
             >
               {/* Image */}
-              <div className="relative h-56 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <img
                   src={program.image}
                   alt={program.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-                <div className="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/10 transition-colors duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-red-600/0 group-hover:bg-red-600/8 transition-colors duration-500" />
               </div>
 
               {/* Content */}
-              <div className="p-6 border-t border-white/5 group-hover:border-red-600/30 transition-colors duration-300">
-                <div className="flex items-center justify-between mb-3">
+              <div className="p-7">
+                <div className="flex items-center justify-between mb-4">
                   <div className="text-red-500 group-hover:text-red-400 transition-colors">
                     {ICON_MAP[program.icon]}
                   </div>
@@ -85,12 +88,12 @@ export default function Programs() {
                   />
                 </div>
                 <h3
-                  className="font-condensed text-xl font-semibold text-white mb-2 tracking-wide group-hover:text-red-50 transition-colors"
+                  className="font-condensed text-xl font-semibold text-white mb-3 tracking-wide group-hover:text-red-50 transition-colors"
                   style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                 >
                   {program.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-500 text-sm leading-relaxed">
                   {program.description}
                 </p>
               </div>
@@ -102,8 +105,8 @@ export default function Programs() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.6, duration: 0.6 }}
-          className="text-center mt-12"
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="text-center mt-14"
         >
           <a
             href="#contact"

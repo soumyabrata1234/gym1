@@ -46,24 +46,27 @@ export default function About() {
   const statsInView = useInView(statsRef, { once: true, margin: "-50px" });
 
   return (
-    <section id="about" className="bg-black py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="bg-black overflow-hidden">
+      {/* Top divider */}
+      <div className="section-divider" />
+
+      <div className="py-36 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="mb-20"
+          className="mb-24"
         >
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-5">
             <div className="w-8 h-px bg-red-500" />
             <span className="text-red-500 text-xs font-semibold tracking-[0.25em] uppercase">
               About Us
             </span>
           </div>
           <h2
-            className="font-display text-6xl sm:text-7xl text-white"
+            className="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none"
             style={{ fontFamily: "'Bebas Neue', sans-serif" }}
           >
             NOT JUST A GYM.
@@ -73,42 +76,36 @@ export default function About() {
         </motion.div>
 
         {/* Two-column layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start mb-24">
-          {/* Left — image stack */}
+        <div className="grid lg:grid-cols-2 gap-24 items-center mb-32">
+          {/* Left — single clean image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&q=80"
+                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
                 alt="IRONFORGE training floor"
-                className="w-full object-cover h-[480px]"
+                className="w-full object-cover h-[560px]"
                 loading="lazy"
               />
-              {/* Overlay card */}
-              <div className="absolute -bottom-6 -right-6 bg-red-600 p-6 max-w-xs hidden sm:block">
-                <div
-                  className="font-display text-5xl text-white mb-1"
-                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-                >
-                  12
-                </div>
-                <div className="text-white/80 text-sm uppercase tracking-widest">
-                  Years of Excellence
-                </div>
-              </div>
+              {/* Red accent line */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-red-600" />
             </div>
-            {/* Second image */}
-            <div className="mt-4 ml-12">
-              <img
-                src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=500&q=80"
-                alt="Olympic lifting"
-                className="w-3/4 h-52 object-cover border-2 border-red-600/20"
-                loading="lazy"
-              />
+
+            {/* Floating stat badge */}
+            <div className="absolute -bottom-8 -right-4 sm:right-8 bg-red-600 p-7">
+              <div
+                className="font-display text-6xl text-white mb-1 leading-none"
+                style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+              >
+                12
+              </div>
+              <div className="text-white/80 text-xs uppercase tracking-widest">
+                Years of Excellence
+              </div>
             </div>
           </motion.div>
 
@@ -117,14 +114,15 @@ export default function About() {
             initial={{ opacity: 0, x: 50 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="pt-6"
           >
-            <p className="text-gray-300 text-lg leading-relaxed mb-8 font-light">
+            <p className="text-gray-200 text-xl leading-relaxed mb-7 font-light">
               Founded in 2012 by former national powerlifting champion{" "}
               <span className="text-white font-medium">Vikram Anand</span>,
               IRONFORGE was built with a singular vision: create the training
               environment that top athletes actually deserve.
             </p>
-            <p className="text-gray-400 leading-relaxed mb-10">
+            <p className="text-gray-400 leading-relaxed mb-12 text-base">
               Today, we're the city's most respected performance facility — not
               because of our equipment (though it's world-class), but because of
               the culture we've built. Every member, from first-timer to
@@ -132,16 +130,16 @@ export default function About() {
             </p>
 
             {/* Why us list */}
-            <div className="space-y-3">
+            <div className="space-y-4">
               {WHY_US.map((point, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, x: 20 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ delay: 0.4 + i * 0.08 }}
-                  className="flex items-start gap-3"
+                  transition={{ delay: 0.4 + i * 0.09 }}
+                  className="flex items-start gap-4"
                 >
-                  <FiCheckCircle className="text-red-500 mt-0.5 shrink-0" size={16} />
+                  <FiCheckCircle className="text-red-500 mt-0.5 shrink-0" size={17} />
                   <span className="text-gray-300 text-sm leading-relaxed">{point}</span>
                 </motion.div>
               ))}
@@ -149,10 +147,10 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Stats row */}
+        {/* Stats row — real gaps, real cards */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {STATS.map((stat, i) => (
             <motion.div
@@ -160,7 +158,7 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={statsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="bg-black p-10 text-center group hover:bg-red-600/5 transition-colors duration-300"
+              className="card-bordered bg-[#0a0a0a] p-10 text-center group hover:bg-red-600/5 transition-colors duration-300"
             >
               <div
                 className="font-display text-5xl sm:text-6xl text-white group-hover:text-red-400 transition-colors duration-300"
@@ -172,7 +170,7 @@ export default function About() {
                   start={statsInView}
                 />
               </div>
-              <div className="text-gray-500 text-xs uppercase tracking-widest mt-2">
+              <div className="text-gray-500 text-xs uppercase tracking-widest mt-3">
                 {stat.label}
               </div>
             </motion.div>
